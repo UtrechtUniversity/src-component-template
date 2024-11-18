@@ -71,7 +71,8 @@ To add and run a new scenario, simply:
 ## CI
 
 GitHub Actions workflows are added for:
-    * Running `molecule` tests
-    * Running `ansible-lint`
+
+ * Running `molecule` tests
+ * Running `ansible-lint`
 
 A configuration file for `ansible-lint` is also provided in `.ansible-lint`.
