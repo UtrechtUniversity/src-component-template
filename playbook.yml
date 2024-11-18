@@ -1,0 +1,27 @@
+---
+- name: Example component
+  hosts: localhost # On ResearchCloud, the target host is always simply 'localhost'.
+  vars:
+  # You can define variables here.
+  # One use for this is to ensure that variables expected to be passed from the SRC portal have sane defaults.
+  # For example:
+    _src_component_var: "{{ src_component_var | default('fallback value', true) }}"
+  gather_facts: true
+  pre_tasks: # These tasks will be executed before your roles are applied
+
+    - name: Display all regular users on the system
+      ansible.builtin.debug:
+        var: fact_regular_users # This fact is not yet set, so this debug tasks will output nothing
+
+  roles:
+    - role: uusrc.general.fact_regular_users
+
+  tasks: # These tasks will be executed after roles are applied
+
+    - name: Display all regular users on the system
+      ansible.builtin.debug:
+        var: fact_regular_users
+
+    - name: Output the test parameter
+      ansible.builtin.debug:
+        msg: "{{ _src_component_var }}"
