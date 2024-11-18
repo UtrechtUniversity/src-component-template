@@ -4,9 +4,20 @@ on:
   push:
     branches:
       - main
+    paths_ignore:
+      - '*.md'
+      - '.ansible-lint'
   pull_request:
     branches:
       - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+    paths_ignore:
+      - '*.md'
+      - '.ansible-lint'
 
 jobs:
 
