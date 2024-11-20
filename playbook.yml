@@ -31,12 +31,13 @@
       block:
 
         - name: Copy some content to a file
-          ansible.builtin.copy: # instead of 'content', you can also pass the 'src' argument to copy a file
+          ansible.builtin.copy:
             dest: "{{ testfile }}"
             mode: "0700"
             owner: root
             group: root
             content: "{{ _src_component_bar | split | map('regex_replace', 'X', '') | join }}" # You can create pipes using filters
+            # src: foo.txt # instead of 'content', you can also pass the 'src' argument to copy an entire file
 
         - name: Cat the contents of this file
           ansible.builtin.command:
