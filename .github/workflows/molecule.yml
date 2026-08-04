@@ -15,7 +15,7 @@ jobs:
       DOCKER_USER: ${{ github.actor }}
       DOCKER_PW: ${{ secrets.GITHUB_TOKEN }}
       DOCKER_REGISTRY: ghcr.io
-      ANSIBLE_FORCE_COLOR: '1'
+      ANSIBLE_FORCE_COLOR: '0' # ANSI coloring breaks GitHub's ability to mask GH secrets in logs.
       ANSIBLE_RESULT_FORMAT: yaml
       MOLECULE_CONFIG: molecule/ext/molecule-src/molecule.yml
       REQUIREMENTS_FILE: requirements.txt
