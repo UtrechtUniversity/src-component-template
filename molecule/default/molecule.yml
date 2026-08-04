@@ -8,8 +8,4 @@ platforms:
     pre_build_image: true
     published_ports: # this is not necessary if not testing against nginx
       - 8080:80
-    registry:
-      url: $DOCKER_REGISTRY
-      credentials:
-        username: $DOCKER_USER
-        password: $DOCKER_PW
+
