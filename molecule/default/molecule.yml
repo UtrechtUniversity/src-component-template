@@ -1,3 +1,13 @@
 ---
-verifier:
-  name: ansible
+platforms:
+  - name: workspace-src-ubuntu_jammy
+    image: ghcr.io/utrechtuniversity/src-test-workspace:ubuntu_noble-nginx # you can optionally change to a non-nginx image
+    command: /sbin/init
+    pre_build_image: true
+    published_ports: # this is not necessary if not testing against nginx
+      - 8080:80
+    registry:
+      url: $DOCKER_REGISTRY
+      credentials:
+        username: $DOCKER_USER
+        password: $DOCKER_PW
