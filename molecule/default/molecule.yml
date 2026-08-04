@@ -1,1 +1,2 @@
 ---
+verifier: ansible # molecule.yml can't be empty
