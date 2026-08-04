@@ -8,4 +8,3 @@ platforms:
     pre_build_image: true
     published_ports: # this is not necessary if not testing against nginx
       - 8080:80
-
