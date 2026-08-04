@@ -50,7 +50,9 @@ Additionally, you can create multiple test *scenarios*, in order to test the exe
 
 This repository contains some Molecule configuration files in `molecule/ext/molecule-src`. This setup is geared towards testing ResearchCloud components. It configures default container images, and [mimics certain other features of ResearchCloud workspaces](https://github.com/UtrechtUniversity/SRC-molecule#scenarios).
 
-**Note: for `molecule` to run correctly, the path to the component playbook should be correctly set in `molecule/default/molecule.yml! It defaults to the default `playbook.yml`, but if you rename this file, be sure to change in the `molecule.yml`, too.**
+**Note: for `molecule` to run correctly, the path to the component playbook should be correctly set in `molecule/default/.env.yml`! It defaults to the default `playbook.yml`, but if you rename this file, be sure to change in the `molecule.yml`, too.**
+
+**Note: parameters that should be passed to your playbook by molecule should be set in `molecule/default/.env.yml`!**
 
 To run `molecule`:
 
