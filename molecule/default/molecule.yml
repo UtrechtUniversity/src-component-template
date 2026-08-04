@@ -1,4 +1,6 @@
 ---
+driver:
+  name: podman
 platforms:
   - name: workspace-src-ubuntu_jammy
     image: ghcr.io/utrechtuniversity/src-test-workspace:ubuntu_noble-nginx # you can optionally change to a non-nginx image
