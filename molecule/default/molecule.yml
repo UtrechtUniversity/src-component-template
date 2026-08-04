@@ -1,3 +1,10 @@
 ---
 verifier:
   name: ansible
+platforms:
+  - name: workspace-src-ubuntu_noble
+    registry:
+      url: ghcr.io
+  - name: workspace-src-ubuntu_jammy
+    registry:
+      url: ghcr.io
