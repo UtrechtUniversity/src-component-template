@@ -24,11 +24,12 @@ Should you use Docker or Podman? In order to make it possible to use `sytemd` se
 1. In order to be able to pull the test image, login to the GitHub container registry:
     * `podman login ghcr.io`
     * Note: you will need to have a GitHub personal access token configured to login
-1. Start a test container with the image you have picked: `podman run -d --name src_component_test -v $(pwd):/etc/rsc/my_component ghcr.io/utrechtuniversity/src-test-workspace:ubuntu_jammy /sbin/init`
+1. Start a test container with the image you have picked: `podman run -d --name src_component_test -v $(pwd):/etc/rsc/my_component ghcr.io/utrechtuniversity/src-test-workspace:ubuntu_noble-nginx /sbin/init`
     * `-d`: run in the background
     * `--name src_component_test`: give your container a name
     * `-v $(pwd):/etc/rsc/my_component`: make your component directory available on the container
     * start with `/sbin/init` to allow testing of `systemd` services
+    * this uses the test image with Nginx preinstalled, but you can use [any available test image](https://github.com/UtrechtUniversity/SRC-test-workspace/pkgs/container/src-test-workspace).
 1. If your component expects variables to be defined in the ResearchCloud portal, mock these variables by defining them in the file `component_vars.yml`.
 1. Execute your component on the container using the provided `run_component` script:
   * `podman exec src_component_test run_component.sh /etc/rsc/my_component/playbook.yml`
